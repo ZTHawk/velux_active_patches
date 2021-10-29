@@ -361,6 +361,78 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/g93$b;->b(Landroid/q05;Ljava/lang/Object;)Landroid/g93$b;
 
+#HashSignKey log
+    invoke-virtual {p3}, Landroid/dz4;->c()[B
+
+    move-result-object v3
+
+    new-instance v5, Ljava/math/BigInteger;
+
+    const/4 v6, 0x1  # interpret the byte array as positive number
+    
+    invoke-direct {v5, v6, v3}, Ljava/math/BigInteger;-><init>(I[B)V
+    
+    const/16 v6, 0x10     # Output base 16 = hexadeximal
+    
+    invoke-virtual {v5, v6}, Ljava/math/BigInteger;->toString(I)Ljava/lang/String;
+    
+    move-result-object v5
+    
+    new-instance v8, Ljava/lang/StringBuilder;
+    
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "HashSignKey: "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "velux-debug"
+    
+    invoke-static {v6, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+#HashSignKey log end
+
+#Sign_Key_Id log
+    invoke-virtual {p3}, Landroid/dz4;->d()[B
+
+    move-result-object v3
+
+    new-instance v5, Ljava/math/BigInteger;
+
+    const/4 v6, 0x1  # interpret the byte array as positive number
+    
+    invoke-direct {v5, v6, v3}, Ljava/math/BigInteger;-><init>(I[B)V
+    
+    const/16 v6, 0x10     # Output base 16 = hexadeximal
+    
+    invoke-virtual {v5, v6}, Ljava/math/BigInteger;->toString(I)Ljava/lang/String;
+    
+    move-result-object v5
+    
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "SignKeyId: "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "velux-debug"
+    
+    invoke-static {v6, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+#Sign_Key_Id log end
+
     .line 26
     invoke-virtual {v0}, Landroid/g93$b;->a()Landroid/g93;
 
@@ -563,6 +635,27 @@
 
     move-result-object v7
 
+#BEGIN write to log
+    new-instance v8, Ljava/math/BigInteger;
+
+    const/4 v9, 0x1  # interpret the byte array as positive number
+    
+    invoke-direct {v8, v9, v7}, Ljava/math/BigInteger;-><init>(I[B)V
+    
+    const/16 v9, 0x10     # Output base 16 = hexadeximal
+    
+    invoke-virtual {v8, v9}, Ljava/math/BigInteger;->toString(I)Ljava/lang/String;
+    
+    move-result-object v8
+    
+    # The hex-string is now in v1
+    
+    # Let's log the value
+    const-string v9, "velux-debug"
+    
+    invoke-static {v9, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+#END write to log
+
     invoke-static {v7}, Lcom/netatmo/crypto/SHA512;->a([B)[B
 
     move-result-object v7
@@ -593,6 +686,32 @@
 
     .line 21
     invoke-virtual {v0, p1, v3}, Landroid/g93$b;->b(Landroid/q05;Ljava/lang/Object;)Landroid/g93$b;
+
+    #HashSignKey
+    #get
+    invoke-virtual {p3}, Landroid/dz4;->c()[B
+
+    move-result-object v3
+
+    #write to log
+    new-instance v5, Ljava/math/BigInteger;
+
+    const/4 v6, 0x1  # interpret the byte array as positive number
+    
+    invoke-direct {v5, v6, v3}, Ljava/math/BigInteger;-><init>(I[B)V
+    
+    const/16 v6, 0x10     # Output base 16 = hexadeximal
+    
+    invoke-virtual {v5, v6}, Ljava/math/BigInteger;->toString(I)Ljava/lang/String;
+    
+    move-result-object v5
+    
+    # The hex-string is now in v1
+    
+    # Let's log the value
+    const-string v6, "velux-debug"
+    
+    invoke-static {v6, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 22
     invoke-virtual {v0}, Landroid/g93$b;->a()Landroid/g93;
