@@ -26,6 +26,7 @@ Use *apkstudio* (https://github.com/vaibhavpandeyvpz/apkstudio) to decompile the
 * ED25519_PunbKey
 * HashSignKey
 * SignKeyId
+* Hashed string
 * *some more*
 
 ## Man in the Middle Proxy
