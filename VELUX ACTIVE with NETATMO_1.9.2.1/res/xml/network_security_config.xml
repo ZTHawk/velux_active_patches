@@ -1,39 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config>
-        <domain includeSubdomains="true">app.velux-active.com
-        </domain>
-        <pin-set>
-            <pin digest="SHA-256">KOCSF5ls1oHec1reXxookgjsLOKIlbG17oEBgHHL38M=
-            </pin>
-            <pin digest="SHA-256">5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=
-            </pin>
-        </pin-set>
+        <domain includeSubdomains="true">app.velux-active.com</domain>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
         <trustkit-config disableDefaultReportUri="true" enforcePinning="false">
-            <report-uri>https://cert-pinning.netatmo.com/
-            </report-uri>
+            <report-uri>https://cert-pinning.netatmo.com/</report-uri>
         </trustkit-config>
     </domain-config>
     <domain-config>
-        <domain includeSubdomains="true">app.inte.velux-active.com
-        </domain>
-        <pin-set>
-            <pin digest="SHA-256">6rKFA6U55e1n2iC6lsvtrtFUSmGut9k8VS7bSezz4Vk=
-            </pin>
-            <pin digest="SHA-256">5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=
-            </pin>
-        </pin-set>
+        <domain includeSubdomains="true">app.inte.velux-active.com</domain>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
         <trustkit-config disableDefaultReportUri="true" enforcePinning="false">
-            <report-uri>https://cert-pinning.netatmo.com/
-            </report-uri>
+            <report-uri>https://cert-pinning.netatmo.com/</report-uri>
+        </trustkit-config>
+    </domain-config>
+    <domain-config>
+        <domain includeSubdomains="true">velux-active.com</domain>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+        <trustkit-config disableDefaultReportUri="true" enforcePinning="false">
+            <report-uri>https://cert-pinning.netatmo.com/</report-uri>
+        </trustkit-config>
+    </domain-config>
+    <domain-config>
+        <domain includeSubdomains="true">netatmo.net</domain>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+        <trustkit-config disableDefaultReportUri="true" enforcePinning="false">
+            <report-uri>https://cert-pinning.netatmo.com/</report-uri>
         </trustkit-config>
     </domain-config>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">fw.netatmo.net
-        </domain>
+        <domain includeSubdomains="true">fw.netatmo.net</domain>
         <trustkit-config disableDefaultReportUri="true" enforcePinning="false">
-            <report-uri>https://cert-pinning.netatmo.com/
-            </report-uri>
+            <report-uri>https://cert-pinning.netatmo.com/</report-uri>
         </trustkit-config>
     </domain-config>
 </network-security-config>

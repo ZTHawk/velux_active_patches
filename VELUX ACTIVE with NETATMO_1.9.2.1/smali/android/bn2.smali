@@ -716,7 +716,8 @@
 .end method
 
 .method public final n(Landroid/fn2;)V
-    .locals 4
+#    .locals 4
+    .locals 6
 
     .line 1
     new-instance v0, Ljava/util/Date;
@@ -730,12 +731,52 @@
 
     iput-object v1, p0, Landroid/bn2;->c:Ljava/lang/String;
 
+#AccessToken log
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "AccessToken: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "velux-debug"
+
+    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+#AccessToken log
+
     .line 3
     invoke-virtual {p1}, Landroid/fn2;->g()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {p0, v1}, Landroid/bn2;->o(Ljava/lang/String;)V
+
+#RefreshToken log
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "RefreshToken: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "velux-debug"
+
+    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+#RefreshToken log
 
     .line 4
     invoke-virtual {p1}, Landroid/fn2;->e()Ljava/lang/Long;
