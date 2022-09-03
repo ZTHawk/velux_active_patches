@@ -113,12 +113,76 @@
 
     move-result-object v0
 
+#UUID log
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "UUID: "
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v1, Ljava/math/BigInteger;
+
+    const/4 v2, 0x1  # interpret the byte array as positive number
+    
+    invoke-direct {v1, v2, v0}, Ljava/math/BigInteger;-><init>(I[B)V
+    
+    const/16 v2, 0x10     # Output base 16 = hexadeximal
+    
+    invoke-virtual {v1, v2}, Ljava/math/BigInteger;->toString(I)Ljava/lang/String;
+    
+    move-result-object v1
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "velux-debug"
+    
+    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+#UUID log end
+
     .line 2
     iget-object v1, p0, Landroid/x10;->e:Landroid/f82;
 
     invoke-interface {v1}, Landroid/f82;->c()[B
 
     move-result-object v5
+
+#Curve25519Donna_PrvKey log
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Curve25519Donna_PrvKey: "
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v1, Ljava/math/BigInteger;
+
+    const/4 v2, 0x1  # interpret the byte array as positive number
+    
+    invoke-direct {v1, v2, v5}, Ljava/math/BigInteger;-><init>(I[B)V
+    
+    const/16 v2, 0x10     # Output base 16 = hexadeximal
+    
+    invoke-virtual {v1, v2}, Ljava/math/BigInteger;->toString(I)Ljava/lang/String;
+    
+    move-result-object v1
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "velux-debug"
+    
+    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+#Curve25519Donna_PrvKey log end
 
     .line 3
     iget-object v1, p0, Landroid/x10;->e:Landroid/f82;
@@ -127,6 +191,38 @@
 
     move-result-object v8
 
+#Curve25519Donna_PubKey log
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Curve25519Donna_PubKey: "
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v1, Ljava/math/BigInteger;
+
+    const/4 v2, 0x1  # interpret the byte array as positive number
+    
+    invoke-direct {v1, v2, v8}, Ljava/math/BigInteger;-><init>(I[B)V
+    
+    const/16 v2, 0x10     # Output base 16 = hexadeximal
+    
+    invoke-virtual {v1, v2}, Ljava/math/BigInteger;->toString(I)Ljava/lang/String;
+    
+    move-result-object v1
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "velux-debug"
+    
+    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+#Curve25519Donna_PubKey log end
+
     .line 4
     iget-object v1, p0, Landroid/x10;->e:Landroid/f82;
 
@@ -134,12 +230,76 @@
 
     move-result-object v6
 
+#ED25519_PrvKey log
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "ED25519_PrvKey: "
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v1, Ljava/math/BigInteger;
+
+    const/4 v2, 0x1  # interpret the byte array as positive number
+    
+    invoke-direct {v1, v2, v6}, Ljava/math/BigInteger;-><init>(I[B)V
+    
+    const/16 v2, 0x10     # Output base 16 = hexadeximal
+    
+    invoke-virtual {v1, v2}, Ljava/math/BigInteger;->toString(I)Ljava/lang/String;
+    
+    move-result-object v1
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "velux-debug"
+    
+    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+#ED25519_PrvKey log end
+
     .line 5
     iget-object v1, p0, Landroid/x10;->e:Landroid/f82;
 
     invoke-interface {v1, v6}, Landroid/f82;->a([B)[B
 
     move-result-object v9
+
+#ED25519_PubKey log
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "ED25519_PubKey: "
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v1, Ljava/math/BigInteger;
+
+    const/4 v2, 0x1  # interpret the byte array as positive number
+    
+    invoke-direct {v1, v2, v9}, Ljava/math/BigInteger;-><init>(I[B)V
+    
+    const/16 v2, 0x10     # Output base 16 = hexadeximal
+    
+    invoke-virtual {v1, v2}, Ljava/math/BigInteger;->toString(I)Ljava/lang/String;
+    
+    move-result-object v1
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "velux-debug"
+    
+    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+#ED25519_PubKey log end
 
     .line 6
     iget-object v10, p0, Landroid/x10;->d:Landroid/h52;

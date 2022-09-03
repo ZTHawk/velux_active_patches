@@ -287,6 +287,26 @@
 
     move-result-object v8
 
+#Hashed string log
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "Hashing string: "
+
+    invoke-virtual {v10, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v10, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    const-string v9, "velux-debug"
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+#Hashed string log
+
     .line 17
     invoke-virtual {v8}, Ljava/lang/String;->length()I
 
@@ -357,6 +377,78 @@
     move-result-object p1
 
     sget-object p2, Landroid/vk2;->P:Landroid/tk2;
+
+#HashSignKey log
+    invoke-virtual {p3}, Landroid/dm4;->c()[B
+
+    move-result-object v3
+
+    new-instance v5, Ljava/math/BigInteger;
+
+    const/4 v6, 0x1  # interpret the byte array as positive number
+    
+    invoke-direct {v5, v6, v3}, Ljava/math/BigInteger;-><init>(I[B)V
+    
+    const/16 v6, 0x10     # Output base 16 = hexadeximal
+    
+    invoke-virtual {v5, v6}, Ljava/math/BigInteger;->toString(I)Ljava/lang/String;
+    
+    move-result-object v5
+    
+    new-instance v8, Ljava/lang/StringBuilder;
+    
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "HashSignKey: "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "velux-debug"
+    
+    invoke-static {v6, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+#HashSignKey log end
+
+#Sign_Key_Id log
+    invoke-virtual {p3}, Landroid/dm4;->d()[B
+
+    move-result-object v3
+
+    new-instance v5, Ljava/math/BigInteger;
+
+    const/4 v6, 0x1  # interpret the byte array as positive number
+    
+    invoke-direct {v5, v6, v3}, Ljava/math/BigInteger;-><init>(I[B)V
+    
+    const/16 v6, 0x10     # Output base 16 = hexadeximal
+    
+    invoke-virtual {v5, v6}, Ljava/math/BigInteger;->toString(I)Ljava/lang/String;
+    
+    move-result-object v5
+    
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "SignKeyId: "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string v6, "velux-debug"
+    
+    invoke-static {v6, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+#Sign_Key_Id log end
 
     .line 25
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
