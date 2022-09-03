@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">fw.netatmo.net</domain>
+        <trustkit-config disableDefaultReportUri="true" enforcePinning="false">
+            <report-uri>https://cert-pinning.netatmo.com/</report-uri>
+        </trustkit-config>
+    </domain-config>
+</network-security-config>
