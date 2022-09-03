@@ -58,3 +58,46 @@ Known <item_name_to_hash>:
   * <device id> is the window
 * scenario (only applicable for 'home')
   * <device id> is the gateway
+
+## Instructions
+
+* Open the .apk file in ApkStudio.
+* OPTIONAL: Additionally open the .apk file in JDAX GUI
+  - Find code and analyse code
+  - Verify your patch is correct (check decompiled java code)
+  - File name and mapped function name can be used to identify it in ApkStudio
+  - Search for: HmacSHA512
+    - In the found file you can add patch to get the:
+      - String that will be hashed (useful to know which options are secured with hash)
+      - The hash key (HashSignKey)
+      - The sign key Id (Sign_Key_Id)
+  - Search for: "grant_type", "password"
+    - One of the found files (the one with "user_prefix" and "scope" branching) is used to get:
+      - client_id
+      - client_secret
+  - Search for: Token could not be refreshed after 60 seconds
+    - In the found file (another function than the text) you can add patch to get the:
+      - AccessToken
+      - RefreshToken
+  - Search for: UUID.randomUUID()
+    - One of the files you can add patch to get the:
+      - UUID
+      - Curve25519Donna private key
+      - Curve25519Donna public key
+      - ED25519 private key
+      - ED25519 public key
+  - File SharedStorageImpl in com - netatmo - ...
+    - Add patch to get:
+      - SharedStorage dictionary items (key and value)
+* Update all files in ApkStudio
+* Generated .apk is located in "dist" folder
+* Sign the generated .apk
+* Install it to your android system
+* Connect android system to your computer
+* Run command
+  - Windows
+    - adb.exe logcat -s velux-debug
+* Start the app
+  - After login also perform the authentication
+  - To get the "HashSignKey" perform a restricted action (eg: opening a window)
+* You should have all info available in the console.
