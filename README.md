@@ -31,7 +31,7 @@ Use *apkstudio* (https://github.com/vaibhavpandeyvpz/apkstudio) to decompile the
 
 ## Man in the Middle Proxy
 
-The patches also allows to use a mitm application (eg: https://mitmproxy.org/).
+The patches also allows to use a mitm application (eg: https://mitmproxy.org/ ; recommended v6.0.2).
 It is best to start mitmproxy before starting the App for the first time to get even more info and API layout.
 
 See https://github.com/nougad/velux-cli/blob/master/velux-protocol.md for additional info.
